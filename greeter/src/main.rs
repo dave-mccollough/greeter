@@ -9,6 +9,11 @@ fn main(){
         &"Rustacaen".to_string()
     };
 
+    if !name.chars().all(|c| c.is_alphabetic() || c.is_whitespace()) {
+        eprintln!("Error: Name must only contain letters or spaces");
+        std::process::exit(1);
+    }
+
     if name.to_lowercase() == "admin" {
         println!("Hello Administrator!")
     } else {
