@@ -4,10 +4,14 @@ fn main(){
     let args: Vec<String> = env::args().collect();
 
     let name = if args.len() > 1{
-        &args[1]
+        &args[1..].join(" ")
     } else {
-        "Rustacaen"
+        &"Rustacaen".to_string()
     };
 
-    println!("Hello {}! Welcome to Rust", name)
+    if name.to_lowercase() == "admin" {
+        println!("Hello Administrator!")
+    } else {
+        println!("Hello, {}! Welcome to Rust", name);
+    }
 }
